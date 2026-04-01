@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taher Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CRITICAL INLINE CSS — loads instantly, zero flash -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #04020f; }
+    body { background: #04020f; }
+    #starCanvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    #preloader {
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 99999;
+      background: #04020f;
+    }
+    #portfolio {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease;
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="loading">
+
+  <!-- STAR CANVAS -->
+  <canvas id="starCanvas"></canvas>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="pl-nebula pl-nb1"></div>
+    <div class="pl-nebula pl-nb2"></div>
+    <div class="pl-nebula pl-nb3"></div>
+    <div id="pl-stars"></div>
+
+    <div class="pl-deco top"    id="pl-deco-top"></div>
+    <div class="pl-deco bottom" id="pl-deco-bot"></div>
+
+    <div class="pl-corner tl" id="pl-c-tl"></div>
+    <div class="pl-corner tr" id="pl-c-tr"></div>
+    <div class="pl-corner bl" id="pl-c-bl"></div>
+    <div class="pl-corner br" id="pl-c-br"></div>
+
+    <div class="pl-content">
+      <span class="pl-tagline" id="pl-tagline">— &nbsp; Portfolio &nbsp; 2026 &nbsp; —</span>
+
+      <div class="pl-letters">
+        <div class="pl-lw"><span class="pl-lb" id="pl-lb0">T</span><span class="pl-lf" id="pl-lf0">T</span><span class="pl-ls" id="pl-ls0">T</span></div>
+        <div class="pl-lw"><span class="pl-lb" id="pl-lb1">A</span><span class="pl-lf" id="pl-lf1">A</span><span class="pl-ls" id="pl-ls1">A</span></div>
+        <div class="pl-lw"><span class="pl-lb" id="pl-lb2">H</span><span class="pl-lf" id="pl-lf2">H</span><span class="pl-ls" id="pl-ls2">H</span></div>
+        <div class="pl-lw"><span class="pl-lb" id="pl-lb3">E</span><span class="pl-lf" id="pl-lf3">E</span><span class="pl-ls" id="pl-ls3">E</span></div>
+        <div class="pl-lw"><span class="pl-lb" id="pl-lb4">R</span><span class="pl-lf" id="pl-lf4">R</span><span class="pl-ls" id="pl-ls4">R</span></div>
+      </div>
+
+      <div class="pl-underline" id="pl-underline"></div>
+
+      <div class="pl-divider" id="pl-divider">
+        <div class="pl-divline l"></div>
+        <div class="pl-orb"></div>
+        <div class="pl-divline r"></div>
+      </div>
+
+      <div class="pl-badge" id="pl-badge">
+        <span class="pl-badge-icon">&#9672;</span>
+        <div class="pl-badge-sep"></div>
+        <span class="pl-badge-label">UI / UX Designer</span>
+        <div class="pl-badge-sep"></div>
+        <span class="pl-badge-icon">&#9672;</span>
+      </div>
+
+      <div class="pl-prog-wrap" id="pl-prog-wrap">
+        <div class="pl-prog-label">
+          <span>Initializing</span>
+          <span id="pl-prog-num">0%</span>
+        </div>
+        <div class="pl-prog-track">
+          <div class="pl-prog-fill" id="pl-prog-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div id="portfolio">
+
+    <!-- HERO -->
+    <div class="homepage">
+      <ul class="navbar">
+        <li>About</li>
+        <li>Contact us</li>
+        <li>Project</li>
+      </ul>
+      <div class="main">
+        <div class="text scroll-animate">
+          <h1>I'm Taher<br>Mangal Mahudi</h1>
+          <h2>follow us designing intuitive experience that<br>connect people and tecnologyy</h2>
+          <button>View my project</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="main1">
+      <div class="about scroll-animate">
+        <div class="me">About me</div>
+        <div class="main">
+          <div class="content" id="about">
+            <p>I'm a passionate UI/UX designer dedicated to creating digital experiences
+            that are both visually appealing and effortlessly functional. I believe great
+            design begins with empathy— understanding users, their goals, and the problems
+            they face. My approach combines creativity with research and strategy to craft
+            user-centered designs that not only look good but also deliver meaningful impact.
+            From wireframes to final prototypes, I focus on building interfaces that feel
+            natural, intuitive, and enjoyable to use. Every project is an opportunity for me
+            to turn ideas into purposeful experiences that connect people with technology
+            in a seamless way.</p>
+          </div>
+          <div class="maini">
+            <img src="92ef5ad7-70b4-4541-826a-94b929cccf18 1.png" alt="Taher">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="main2">
+      <div class="skill scroll-animate">
+        <p>Skills</p>
+        <div class="texts">
+          <ul>
+            <li>User Interface</li>
+            <li>Web Design</li>
+          </ul>
+          <ul>
+            <li>User Experience</li>
+            <li>Graphic Design</li>
+          </ul>
+        </div>
+        <div class="marquee left">
+          <div class="track">
+            <img src="PHOTO SHOP.png" alt=""><img src="xd.png" alt=""><img src="figma.png" alt="">
+            <img src="lightroom.png" alt=""><img src="illustrater.png" alt="">
+            <img src="PHOTO SHOP.png" alt=""><img src="xd.png" alt=""><img src="figma.png" alt="">
+            <img src="lightroom.png" alt=""><img src="illustrater.png" alt="">
+          </div>
+        </div>
+        <div class="marquee right">
+          <div class="track">
+            <img src="html.png" alt=""><img src="CSS.png" alt="">
+            <img src="html.png" alt=""><img src="CSS.png" alt="">
+            <img src="html.png" alt=""><img src="CSS.png" alt="">
+            <img src="html.png" alt=""><img src="CSS.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="main3">
+      <div class="container">
+        <h2 class="info">Featured Projects</h2>
+        <div class="project-grid">
+          <div class="project-card scroll-animate animate-scale">
+            <img src="wall-mockup-dark-tones-green-600nw-2249639263 1 (1).png" alt="Furni">
+            <div class="project-info">
+              <h3>Furni</h3>
+              <p>This project explored how AR can help customers make confident furniture choices. Users can preview real-scale furniture in their room, change colors or materials, and instantly see how each piece fits their decor.</p>
+              <a href="https://www.figma.com/proto/ZpesSephEfgsDCPD8dF8Wg/Untitled?node-id=1-2&starting-point-node-id=1%3A2&t=NcC83MD4aCd0tVJ1-1" class="project-link"><i class="fas fa-external-link-alt"></i> View in Figma</a>
+            </div>
+          </div>
+          <div class="project-card scroll-animate animate-scale">
+            <img src="Frame 12.png" alt="MuscleX">
+            <div class="project-info">
+              <h3>MuscleX &ndash; A UI/UX Approach to Next-Gen Fitness</h3>
+              <p>MuscleX is a unified fitness experience that brings together a powerful workout-tracking app and a high-quality supplement range under one brand.</p>
+              <a href="https://www.figma.com/proto/ApdMJImMRAufkGXmGUDl5J/Untitled?node-id=1-2&starting-point-node-id=1%3A2&t=znoqN9E6kLLUINxT-1" class="project-link"><i class="fas fa-external-link-alt"></i> View in Figma</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="hero">
+        <h1>Web Design Showcase</h1>
+        <p>Crafting modern, responsive &amp; user-focused designs</p>
+      </header>
+
+      <section class="projects">
+        <div class="project-card scroll-animate">
+          <img src="UI HM.png" alt="Project 1">
+          <div class="project-info">
+            <a href="https://www.figma.com/proto/5tK0hqzmym5SIZiZM8QwsD/Untitled?node-id=1-2&t=hCyeLtqwi2ePZfr9-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" class="project-link"><i class="fas fa-external-link-alt"></i> View in Figma</a>
+          </div>
+        </div>
+        <div class="project-card scroll-animate">
+          <img src="WEB  FIMGA.png" alt="Project 2">
+          <div class="project-info">
+            <a href="https://www.figma.com/proto/aqBmMBD0FNNh56Lk3XKupG/Untitled?node-id=1-6&t=NBqHEz4Z8YDpjUg0-1" class="project-link"><i class="fas fa-external-link-alt"></i> View in Figma</a>
+          </div>
+        </div>
+        <div class="project-card scroll-animate">
+          <img src="ui website heron.png" alt="Project 3">
+          <div class="project-info">
+            <a href="https://www.figma.com/proto/ju56WgFZ8gygCpJtx8Xeba/Untitled?node-id=2-2&t=7dMzuH7CTWoPv6pZ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" class="project-link"><i class="fas fa-external-link-alt"></i> View in Figma</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTOSHOP -->
+      <section class="photoshop-section">
+        <div class="container">
+          <h1 class="section-title">Photoshop</h1>
+          <div class="gallery">
+            <div class="card"><img src="apple.png" alt=""></div>
+            <div class="card"><img src="ball shadow.png" alt=""></div>
+            <div class="card"><img src="PHOTO 2.jpeg" alt=""></div>
+            <div class="card"><img src="PHOTOSHOP 3.jpeg" alt=""></div>
+            <div class="card"><img src="PHOTOS 4.jpeg" alt=""></div>
+            <div class="card"><img src="POHOT 1.jpeg" alt=""></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <div class="main5">
+        <div class="main4 scroll-animate">
+          <h1>contact me</h1>
+        </div>
+        <div class="form-wrapper scroll-animate"></div>
+        <div class="contact">
+          <p class="phone">contact no: +91 8200448768</p>
+        </div>
+        <div class="social-links">
+
+          <a href="https://www.linkedin.com/in/taher-mangalmahudi-71bb8a390" class="social-btn linkedin" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="/cdn-cgi/l/email-protection#bdc9dcd5d8cfd0dcd3dadcd1d0dcd5c8d9d4fddad0dcd4d193ded2d0" class="social-btn gmail" title="Gmail">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.364l-6.545-4.636v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.236l8.073-5.743C21.69 2.279 24 3.434 24 5.457z"/></svg>
+            <span>Gmail</span>
+          </a>
+
+          <a href="https://www.instagram.com/taher_m44?igsh=dTI3emFlM3Z3c3hu" class="social-btn instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>Instagram</span>
+          </a>
+
+          <a href="https://wa.me/918200448768" class="social-btn whatsapp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- /#portfolio -->
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+  /* ══════════════════════════════
+     1. MOVING STAR BACKGROUND
+  ══════════════════════════════ */
+  (function () {
+    var canvas = document.getElementById('starCanvas');
+    var ctx    = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function rand(a, b) { return Math.random() * (b - a) + a; }
+
+    var stars = [];
+    for (var i = 0; i < 200; i++) {
+      stars.push({
+        x:     rand(0, canvas.width),
+        y:     rand(0, canvas.height),
+        r:     rand(0.4, 2.2),
+        speed: rand(0.05, 0.3),
+        drift: rand(-0.06, 0.06),
+        tOff:  rand(0, Math.PI * 2),
+        tSpd:  rand(0.01, 0.04),
+        alpha: rand(0.5, 1.0)
+      });
+    }
+
+    var f = 0;
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        var a = s.alpha * (0.6 + 0.4 * Math.sin(f * s.tSpd + s.tOff));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + a.toFixed(3) + ')';
+        ctx.fill();
+        s.y += s.speed;
+        s.x += s.drift;
+        if (s.y > canvas.height + 2) { s.y = -2; s.x = rand(0, canvas.width); }
+        if (s.x < -2)                  s.x = canvas.width + 2;
+        if (s.x > canvas.width + 2)    s.x = -2;
+      }
+      f++;
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+
+
+  /* ══════════════════════════════
+     2. PRELOADER
+  ══════════════════════════════ */
+  (function () {
+
+    /* Build preloader star dots */
+    var sw = document.getElementById('pl-stars');
+    sw.style.cssText = 'position:absolute;inset:0;pointer-events:none;';
+    var sc = ['#fff','#d4aaff','#ffb700','#ff8c8c','#ffdd88','#b44fff'];
+    for (var i = 0; i < 160; i++) {
+      var s  = document.createElement('div');
+      var sz = (Math.random() * 2.2 + 0.3).toFixed(1);
+      s.className = 'pl-star';
+      s.style.cssText =
+        'width:'  + sz + 'px;height:' + sz + 'px;' +
+        'top:'    + (Math.random() * 100).toFixed(2) + '%;' +
+        'left:'   + (Math.random() * 100).toFixed(2) + '%;' +
+        'background:'      + sc[Math.random() * sc.length | 0] + ';' +
+        'opacity:'         + (Math.random() * 0.6 + 0.1).toFixed(2) + ';' +
+        '--d:'             + (Math.random() * 3 + 1.5).toFixed(1) + 's;' +
+        'animation-delay:' + (Math.random() * 5).toFixed(2) + 's;';
+      sw.appendChild(s);
+    }
+
+    function get(id)  { return document.getElementById(id); }
+    function cls(id)  { get(id).classList.add('show'); }
+    function wait(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+
+    async function run() {
+
+      await wait(300);  cls('pl-tagline');
+
+      for (var i = 0; i < 5; i++) {
+        await wait(i === 0 ? 200 : 130);
+        cls('pl-lb' + i);
+      }
+
+      await wait(180); cls('pl-deco-top');
+      await wait(120); cls('pl-deco-bot');
+
+      await wait(100);
+      for (var i = 0; i < 5; i++) {
+        await wait(90);
+        cls('pl-lf' + i);
+      }
+
+      await wait(80);
+      cls('pl-underline');
+      ['pl-c-tl','pl-c-tr','pl-c-bl','pl-c-br'].forEach(function(id, idx) {
+        setTimeout(function() { get(id).classList.add('show'); }, idx * 80);
+      });
+      await wait(160); cls('pl-divider');
+      await wait(180); cls('pl-badge');
+      await wait(200); cls('pl-prog-wrap');
+
+      /* Progress bar */
+      var fill  = get('pl-prog-fill');
+      var numEl = get('pl-prog-num');
+      var dur   = 2200;
+      var t0    = performance.now();
+
+      await new Promise(function(resolve) {
+        function tick(now) {
+          var t   = Math.min((now - t0) / dur, 1);
+          var e   = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2;
+          var pct = Math.round(e * 100);
+          fill.style.width  = pct + '%';
+          numEl.textContent = pct + '%';
+          if (t < 1) { requestAnimationFrame(tick); }
+          else { fill.style.width = '100%'; numEl.textContent = '100%'; resolve(); }
+        }
+        requestAnimationFrame(tick);
+      });
+
+      /* Shimmer */
+      for (var i = 0; i < 5; i++) {
+        (function(idx) {
+          setTimeout(function() { get('pl-ls' + idx).classList.add('run'); }, idx * 80);
+        })(i);
+      }
+
+      /* ── EXIT: fade preloader, reveal portfolio ── */
+      await wait(700);
+
+      var preloader = get('preloader');
+      var portfolio = get('portfolio');
+      var done      = false;
+
+      function reveal() {
+        if (done) return;
+        done = true;
+        /* Hide preloader completely */
+        preloader.style.display = 'none';
+        /* Unlock scroll */
+        document.body.classList.remove('loading');
+        /* Show portfolio */
+        portfolio.style.visibility = 'visible';
+        /* Two rAF frames so browser registers visibility before opacity transition */
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            portfolio.style.opacity = '1';
+          });
+        });
+        initPortfolio();
+      }
+
+      /* Smooth fade */
+      preloader.style.transition = 'opacity 0.9s ease';
+      preloader.style.opacity    = '0';
+
+      /* Listen for fade end */
+      preloader.addEventListener('transitionend', function handler(e) {
+        if (e.propertyName !== 'opacity') return;
+        preloader.removeEventListener('transitionend', handler);
+        reveal();
+      });
+
+      /* Guaranteed fallback — fires after 1100ms no matter what */
+      setTimeout(reveal, 1100);
+    }
+
+    /* Start after fonts are ready */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    } else {
+      window.addEventListener('load', run);
+    }
+
+  })();
+
+
+  /* ══════════════════════════════
+     3. PORTFOLIO INTERACTIONS
+  ══════════════════════════════ */
+  function initPortfolio() {
+
+    /* Scroll reveal animations */
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if      (el.classList.contains('animate-scale')) el.classList.add('animate-scale');
+        else if (el.classList.contains('animate-left'))  el.classList.add('animate-left');
+        else if (el.classList.contains('animate-right')) el.classList.add('animate-right');
+        else                                              el.classList.add('animate');
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.scroll-animate').forEach(function(el) { obs.observe(el); });
+
+    /* Navbar smooth scroll */
+    var navItems = document.querySelectorAll('.navbar li');
+    var targets  = {
+      'About':      document.getElementById('about'),
+      'Contact us': document.querySelector('.form-wrapper'),
+      'Project':    document.querySelector('.main3')
+    };
+    navItems.forEach(function(li) {
+      li.style.cursor = 'pointer';
+      li.addEventListener('click', function() {
+        var t = targets[li.textContent.trim()];
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* View project button */
+    var btn = document.querySelector('.text button');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        document.querySelector('.main3').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    /* Navbar scroll effects */
+    var navbar = document.querySelector('.navbar');
+    var allSec = document.querySelectorAll('section, .main1, .main2, .main3, .form-wrapper');
+
+    window.addEventListener('scroll', function() {
+      navbar.style.background     = scrollY > 50 ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.6)';
+      navbar.style.backdropFilter = scrollY > 50 ? 'blur(10px)'      : 'blur(0px)';
+
+      var cur = '';
+      allSec.forEach(function(s) { if (scrollY >= s.offsetTop - 150) cur = s.className; });
+      navItems.forEach(function(li) {
+        li.style.color = 'white';
+        if (
+          (cur.includes('main1')        && li.textContent.includes('About'))   ||
+          (cur.includes('main3')        && li.textContent.includes('Project')) ||
+          (cur.includes('form-wrapper') && li.textContent.includes('Contact'))
+        ) {
+          li.style.color = '#a78bfa';
+        }
+      });
+    });
+
+  } /* end initPortfolio */
+
+  </script>
+
+</body>
+</html>
